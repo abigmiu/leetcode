@@ -1,0 +1,15 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:abigmiu/leetcode.git",
+  "author": "tangying <tangying@ganguo.hk>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "prettier": "^2.7.1",
+    "vite": "^3.0.9"
+  }
+}
