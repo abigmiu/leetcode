@@ -35,12 +35,11 @@ class ListNode {
     }
 }
 function swapPairs(head: ListNode | null): ListNode | null {
-    let cursor = head
-    let a = cursor
-    let b = cursor?.next
-    let temp = a;
-    if (b) {
-        b.next = temp
+    if (head === null || head.next === null) {
+        return head;
     }
-
+    let nextNode = head.next;
+    head.next = swapPairs(nextNode.next);
+    nextNode.next = head;
+    return nextNode;
 };
