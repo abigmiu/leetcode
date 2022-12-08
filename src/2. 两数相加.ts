@@ -23,7 +23,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-class ListNode {
+export class ListNode {
     val: number
     next: ListNode | null
     constructor(val?: number, next?: ListNode | null) {
@@ -31,7 +31,7 @@ class ListNode {
         this.next = (next === undefined ? null : next)
     }
 }
-function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     let newNode = new ListNode()
     let newHead = newNode
 
@@ -55,31 +55,3 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 
     return newHead.next;
 };
-
-const l1 = [2, 4, 3]
-const l2 = [5, 6, 4]
-
-let l1Node = new ListNode()
-let l1Head = l1Node
-let l2Node = new ListNode()
-let l2Head = l2Node
-let index = 0
-while (index < l1.length) {
-    l1Node.next = new ListNode(l1[index])
-    index++;
-    l1Node = l1Node.next
-}
-index = 0
-while (index < l2.length) {
-    l2Node.next = new ListNode(l2[index])
-    index++
-    l2Node = l2Node.next
-}
-
-let res = addTwoNumbers(l1Head.next, l2Head.next)
-while (res) {
-    console.log(res)
-    res = res.next
-}
-
-export default addTwoNumbers;
