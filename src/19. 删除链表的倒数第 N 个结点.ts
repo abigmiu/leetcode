@@ -26,7 +26,7 @@
  * Definition for singly-linked list.
 
  */
-class ListNode {
+export class ListNode {
     val: number
     next: ListNode | null
     constructor(val?: number, next?: ListNode | null) {
@@ -36,6 +36,10 @@ class ListNode {
 }
 
 /** 递归 */
+
+/**
+ * 遇到 target 的时候跳到下一个
+ */
 // function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
 //     let count = 0;
 //     function inner(head: ListNode | null, n: number) {
@@ -54,7 +58,11 @@ class ListNode {
 // };
 
 /** 前后指针 */
-function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+
+/**
+ *  先让快指针到达 N。然后快慢指针一起遍历完成
+ */
+export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     const tempNode = new ListNode(0)
     tempNode.next = head;
     let fastNode: ListNode | null = tempNode;
