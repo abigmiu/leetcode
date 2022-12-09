@@ -26,7 +26,7 @@
  * Definition for singly-linked list.
 
  */
-class ListNode {
+export class ListNode {
     val: number
     next: ListNode | null
     constructor(val?: number, next?: ListNode | null) {
@@ -34,7 +34,7 @@ class ListNode {
         this.next = (next === undefined ? null : next)
     }
 }
-function swapPairs(head: ListNode | null): ListNode | null {
+export function swapPairs(head: ListNode | null): ListNode | null {
     if (head === null || head.next === null) {
         return head;
     }
