@@ -21,6 +21,8 @@
  * Definition for singly-linked list.
 
  */
+
+// TODO:
 class ListNode {
     val: number
     next: ListNode | null
@@ -29,7 +31,40 @@ class ListNode {
         this.next = (next === undefined ? null : next)
     }
 }
-function reverseBetween(head: ListNode | null, left: number, right: number): ListNode | null {
-    if (left === right) return head;
+export function reverseBetween(head: ListNode | null, left: number, right: number): ListNode | null {
+    const dummyNode = new ListNode(-1)
+    dummyNode.next = head
+
+    let pre: ListNode | null = dummyNode;
+    for (let i = 0; i < left - 1; i++) {
+        pre = pre!.next;
+    }
+
+    let rightNode = pre;
+    for (let i = 0; i < right - left + 1; i++) {
+        rightNode = rightNode!.next
+    }
+
+    let leftNode = pre!.next
+    let curr = rightNode!.next
+
+    pre!.next = null
+    rightNode!.next = null
+
+    reverseLinkedList(leftNode);
+
+    return head;
 
 };
+
+function reverseLinkedList(head: ListNode | null) {
+    let pre: ListNode | null = null
+    let cur: ListNode | null = head
+
+    while (cur) {
+        const next = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = next
+    }
+}
