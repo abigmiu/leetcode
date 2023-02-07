@@ -27,17 +27,34 @@ class ListNode {
         this.next = (next === undefined ? null : next)
     }
 }
+/** 循环 */
+// export function deleteNode(head: ListNode | null, val: number): ListNode | null {
+//     const dummyNode = new ListNode(0, head);
+//     let cursor: ListNode | null = dummyNode;
 
+//     while (cursor) {
+//         if (cursor.next && cursor.next.val === val) {
+//             cursor.next = cursor.next.next;
+//             break;
+//         }
+//         cursor = cursor.next;
+//     }
+
+//     return dummyNode.next;
+// };
+
+/** 双指针 */
 export function deleteNode(head: ListNode | null, val: number): ListNode | null {
     const dummyNode = new ListNode(0, head);
-    let cursor: ListNode | null = dummyNode;
-
-    while (cursor) {
-        if (cursor.next && cursor.next.val === val) {
-            cursor.next = cursor.next.next;
+    let leftNode: ListNode | null = dummyNode;
+    let rightNode: ListNode | null = leftNode.next;
+    while (rightNode) {
+        if (rightNode.val === val) {
+            leftNode!.next = rightNode.next;
             break;
         }
-        cursor = cursor.next;
+        leftNode = leftNode!.next;
+        rightNode = rightNode.next;
     }
 
     return dummyNode.next;
